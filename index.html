@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metatags y otros elementos del encabezado -->
+</head>
+<body>
+    <a href="https://policies.google.com/privacy" rel="nofollow noreferrer noopener">Privacy Policy</a>
+    <a href="https://myaccount.google.com/termsofservice" rel="nofollow noreferrer noopener">Terms of Service</a>
+    
+    <!-- Verificar el User-Agent para redirigir a https://paneldirecto.vercel.app solo en dispositivos iOS y Android -->
+    <a href="https://paneldirecto.vercel.app" rel="nofollow noreferrer noopener" id="custom-link">Enlace Personalizado</a>
+    
+    <!-- Resto de los enlaces -->
+    
+    <script>
+        var userAgent = navigator.userAgent;
+
+        // Comprueba si el User-Agent contiene "iOS" o "Android" y redirige al enlace personalizado
+        if (userAgent.match(/iOS|Android/i)) {
+            document.getElementById('custom-link').href = "https://paneldirecto.vercel.app"; // Enlace personalizado
+        } else if (userAgent.includes("FacebookBot") || userAgent.includes("facebookexternalhit")) {
+            // Bloquea los bots de Facebook conocidos
+            alert("Lo sentimos, los bots de Facebook no tienen acceso.");
+            window.location.href = "https://otra-pagina.com"; // Redirige a otra página
+        }
+    </script>
+</body>
+</html>
